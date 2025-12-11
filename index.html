@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Rururtyy — A Universe of Love</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&family=Scheherazade+New:wght@600&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+    background:#000010;
+    overflow-x:hidden;
+    font-family:"Poppins",sans-serif;
+    color:white;
+    text-align:center;
+}
+
+/* Galaxy particles */
+.particle{
+    position:absolute;
+    background:white;
+    border-radius:50%;
+    opacity:.3;
+    animation: drift 12s infinite linear;
+}
+@keyframes drift{
+    0%{transform:translateY(0);}
+    100%{transform:translateY(-140vh);}
+}
+
+/* Rose petals */
+.petal{
+    position:fixed;
+    top:-10vh;
+    color:#ff5d9e;
+    font-size:20px;
+    animation: fall 7s linear infinite;
+    opacity:.8;
+}
+@keyframes fall{
+    0%{transform:translateY(-10vh) rotate(0deg);}
+    100%{transform:translateY(110vh) rotate(360deg);}
+}
+
+/* Floating kisses & hugs */
+.kisshug{
+    position:fixed;
+    top:100vh;
+    font-size:22px;
+    animation: rise 8s linear infinite;
+    opacity:.8;
+}
+@keyframes rise{
+    0%{transform:translateY(0) scale(0.8);opacity:.3;}
+    50%{opacity:1;}
+    100%{transform:translateY(-140vh) scale(1.2);opacity:0;}
+}
+
+/* Title */
+h1{
+    margin-top:120px;
+    font-size:3.3rem;
+    font-weight:600;
+    text-shadow:0 0 25px #ffb6e6;
+    animation:fadeIn 3s ease;
+}
+
+/* Typewriter */
+#typewriter{
+    margin:40px auto;
+    font-size:1.3rem;
+    max-width:700px;
+    line-height:1.8;
+    min-height:130px;
+}
+
+/* Arabic line */
+.arabic{
+    margin:30px auto;
+    font-family:"Scheherazade New",serif;
+    font-size:1.7rem;
+    direction:rtl;
+    width:85%;
+    opacity:0;
+    animation:fadeIn 4s ease forwards;
+}
+
+/* Heart pulse */
+.glow{
+    font-size:3.8rem;
+    margin-top:40px;
+    animation:pulse 2s infinite ease-in-out;
+    text-shadow:0 0 20px #ff7fb8,0 0 40px #ff9ed1;
+}
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.35);}
+    100%{transform:scale(1);}
+}
+
+/* Signature */
+.signature{
+    margin-top:60px;
+    font-family:"Great Vibes",cursive;
+    font-size:3rem;
+    color:#ffbde6;
+    opacity:0;
+    animation:signatureFade 6s ease forwards;
+}
+@keyframes signatureFade{
+    0%{opacity:0;letter-spacing:10px;}
+    100%{opacity:1;letter-spacing:2px;}
+}
+
+/* Secret star */
+#secretStar{
+    margin-top:50px;
+    font-size:3rem;
+    cursor:pointer;
+    transition:.3s;
+}
+#secretStar:hover{
+    transform:scale(1.2);
+    text-shadow:0 0 25px gold;
+}
+#secretBox{
+    margin:20px auto;
+    width:70%;
+    display:none;
+    font-size:1.2rem;
+    animation:fadeIn 2s ease forwards;
+}
+
+/* Photo frame */
+.photo-frame{
+    margin:80px auto;
+    width:260px;
+    height:360px;
+    border-radius:20px;
+    background-image: url('https://i.postimg.cc/65DMm361/IMG-20251120-WA0012.jpg');
+    background-size: contain;        /* <-- show whole image */
+    background-repeat: no-repeat;
+    background-position: center;     /* center the photo */
+    background-color: rgba(0,0,0,0.25); /* fills empty area */
+    box-shadow:0 0 25px rgba(255,150,200,0.4);
+}
+@keyframes floatPhoto{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+    100%{transform:translateY(0);}
+}
+
+section{
+    margin-top:120px;
+    padding:60px 20px;
+    opacity:0;
+    animation:sectionReveal 4s ease forwards;
+}
+@keyframes sectionReveal{
+    0%{opacity:0;transform:translateY(40px);}
+    100%{opacity:1;transform:translateY(0);}
+}
+
+footer{
+    margin-top:70px;
+    opacity:.7;
+    font-size:.9rem;
+}
+
+@keyframes fadeIn{
+    0%{opacity:0;transform:translateY(20px);}
+    100%{opacity:1;transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<script>
+// galaxy particles
+for(let i=0;i<80;i++){
+    let p=document.createElement("div");
+    p.className="particle";
+    let size=Math.random()*4+1;
+    p.style.width=size+"px";
+    p.style.height=size+"px";
+    p.style.left=Math.random()*window.innerWidth+"px";
+    p.style.top=Math.random()*window.innerHeight+"px";
+    p.style.animationDuration=(8+Math.random()*8)+"s";
+    document.body.appendChild(p);
+}
+
+// rose petals
+for(let i=0;i<25;i++){
+    let pet=document.createElement("div");
+    pet.className="petal";
+    pet.innerHTML="❀";
+    pet.style.left=Math.random()*100+"vw";
+    pet.style.animationDelay=Math.random()*7+"s";
+    document.body.appendChild(pet);
+}
+
+// kisses + hugs
+const icons=["💋","🤍","🤗","💞"];
+for(let i=0;i<20;i++){
+    let k=document.createElement("div");
+    k.className="kisshug";
+    k.innerHTML=icons[Math.floor(Math.random()*icons.length)];
+    k.style.left=Math.random()*100+"vw";
+    k.style.animationDelay=Math.random()*8+"s";
+    document.body.appendChild(k);
+}
+</script>
+
+<h1>My Rururtyy — My Endless Love 💋🤍</h1>
+
+<div id="typewriter"></div>
+
+<div class="arabic">
+    يا رورورتيّ،  
+    في حضوركِ يهدأُ الضجيج، وتصفو الدنيا،  
+    وكأنّ قلبي يعانق قلبكِ… حضنًا لا يفلت. 🤗💞
+</div>
+
+<div class="glow">❤</div>
+
+<div class="signature">Kisses & Hugs, Always Yours.</div>
+
+<!-- Secret star -->
+<div id="secretStar">★</div>
+<div id="secretBox">Every hug I imagine… ends with your heartbeat. Every kiss I dream of… begins with your name, Rururtyy. 💋</div>
+
+<div class="photo-frame"></div>
+
+<section>
+    <h2 style="font-size:2.2rem;margin-bottom:20px;">Wrapped in Your Warmth</h2>
+    <p style="max-width:700px;margin:auto;font-size:1.1rem;line-height:1.8;">
+        Loving you feels like being held by the universe itself —  
+        soft, infinite, and impossibly gentle.  
+        <br><br>
+        And every time I whisper “Rururtyy,”  
+        it feels like a kiss…  
+        and every thought of you feels like a hug. 🤍🤗  
+    </p>
+</section>
+<div><iframe width="300" height="60" src="https://vocaroo.com/embed/1cnx5lPiExfu?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/1cnx5lPiExfu" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+
+<footer>Made with all my kisses & hugs for you, Rururtyy.</footer>
+
+<script>
+// typewriter
+let text=`There are names that sound sweet…
+and then there is yours — Rururtyy —
+a name that feels like a kiss against my soul.
+
+Your presence wraps me gently,
+like a warm embrace that never lets go.
+
+Every heartbeat whispers your name.
+Every breath carries your softness.
+
+Kisses for your smile…
+Hugs for your heart.`;
+
+let i=0;
+function type(){
+    if(i<text.length){
+        document.querySelector("#typewriter").innerHTML+=text.charAt(i);
+        i++;
+        setTimeout(type,42);
+    }
+}
+type();
+
+// secret box
+document.querySelector("#secretStar").onclick=function(){
+    document.querySelector("#secretBox").style.display="block";
+};
+</script>
+
+</body>
+</html>
